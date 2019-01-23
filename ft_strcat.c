@@ -5,26 +5,25 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttresori <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/30 21:15:05 by ttresori          #+#    #+#             */
-/*   Updated: 2016/11/30 21:15:06 by ttresori         ###   ########.fr       */
+/*   Created: 2017/11/10 02:30:49 by ttresori          #+#    #+#             */
+/*   Updated: 2017/11/10 02:30:54 by ttresori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcat(char *dest, const char *src)
+char	*ft_strcat(char *dest, char const *src)
 {
 	int i;
-	int j;
+	int size;
 
 	i = 0;
-	j = 0;
-	while (dest[i])
-		i++;
-	while (src[j])
+	size = 0;
+	while (dest[size])
+		size++;
+	while (src[i])
 	{
-		dest[i] = src[j];
+		dest[size + i] = src[i];
 		i++;
-		j++;
 	}
-	dest[i] = '\0';
+	dest[size + i] = '\0';
 	return (dest);
 }

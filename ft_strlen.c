@@ -5,21 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttresori <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/30 18:29:38 by ttresori          #+#    #+#             */
-/*   Updated: 2016/11/30 18:29:38 by ttresori         ###   ########.fr       */
+/*   Created: 2017/11/10 02:32:06 by ttresori          #+#    #+#             */
+/*   Updated: 2017/11/10 02:37:36 by ttresori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *str)
+size_t	ft_strlen(char const *str)
 {
-	size_t	i;
+	int i;
 
 	i = 0;
-	if (!str)
-		return (-1);
-	while (str[i] != '\0')
+	while (str[i])
 		i++;
 	return (i);
 }

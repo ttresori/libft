@@ -5,27 +5,26 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttresori <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/30 18:46:36 by ttresori          #+#    #+#             */
-/*   Updated: 2016/11/30 20:51:28 by ttresori         ###   ########.fr       */
+/*   Created: 2017/11/10 02:31:00 by ttresori          #+#    #+#             */
+/*   Updated: 2017/11/10 06:44:11 by ttresori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strcmp(char *s1, char *s2)
+int		ft_strcmp(char const *s1, char const *s2)
 {
 	int				i;
-	unsigned char	*s12;
-	unsigned char	*s22;
+	unsigned char	*new_s1;
+	unsigned char	*new_s2;
 
+	new_s1 = (unsigned char *)s1;
+	new_s2 = (unsigned char *)s2;
 	i = 0;
-	s12 = (unsigned char *)s1;
-	s22 = (unsigned char *)s2;
-	while (s12[i] != '\0' && s22[i] != '\0')
+	while (new_s1[i] || new_s2[i])
 	{
-		if (s12[i] != s22[i])
-			return (s12[i] - s22[i]);
-		i++;
+		if (new_s1[i] == new_s2[i])
+			i++;
+		else
+			return (new_s1[i] - new_s2[i]);
 	}
-	if (s12[i] == s22[i])
-		return (0);
-	return (s12[i] - s22[i]);
+	return (0);
 }

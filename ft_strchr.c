@@ -5,25 +5,25 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttresori <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/30 17:33:55 by ttresori          #+#    #+#             */
-/*   Updated: 2016/11/30 17:36:58 by ttresori         ###   ########.fr       */
+/*   Created: 2017/11/10 04:44:38 by ttresori          #+#    #+#             */
+/*   Updated: 2017/11/12 07:03:04 by ttresori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strchr(char const *s, int c)
 {
-	const char	*str;
-	int			i;
+	int i;
 
-	str = (char*)s;
 	i = 0;
-	while (str[i] != (char)c)
+	while (s[i])
 	{
-		if (str[i] == '\0')
-			return (NULL);
+		if (s[i] == c)
+			return ((char *)s + i);
 		i++;
 	}
-	return ((char*)str + i);
+	if (s[i] == '\0' && s[i] == c)
+		return ((char *)s + i);
+	return (NULL);
 }

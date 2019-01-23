@@ -5,30 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttresori <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/30 21:13:15 by ttresori          #+#    #+#             */
-/*   Updated: 2016/11/30 21:13:16 by ttresori         ###   ########.fr       */
+/*   Created: 2017/11/14 01:34:55 by ttresori          #+#    #+#             */
+/*   Updated: 2017/11/20 07:10:06 by ttresori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmapi(const char *s, char (*f)(unsigned int, char))
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char			*new;
-	unsigned int	i;
+	char	*str;
+	int		i;
 
-	new = NULL;
-	i = 0;
-	if (!s || !f)
+	if (!s)
 		return (NULL);
-	new = (char*)malloc(sizeof(char) * (ft_strlen(s) + 1));
-	if (!new)
-		return (0);
-	while (s[i] != '\0')
+	i = 0;
+	if (!(str = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1))))
+		return (NULL);
+	while (s[i])
 	{
-		new[i] = f(i, s[i]);
+		str[i] = f(i, s[i]);
 		i++;
 	}
-	new[i] = '\0';
-	return (new);
+	str[i] = '\0';
+	return (str);
 }

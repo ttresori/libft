@@ -5,16 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttresori <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/30 21:17:33 by ttresori          #+#    #+#             */
-/*   Updated: 2016/11/30 21:17:40 by ttresori         ###   ########.fr       */
+/*   Created: 2017/11/10 03:25:05 by ttresori          #+#    #+#             */
+/*   Updated: 2017/11/10 03:26:45 by ttresori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isascii(int c)
+int		ft_isascii(int c)
 {
-	if (c > -1 && c < 128)
+	if (c >= 0 && c <= 127)
 		return (1);
-	return (0);
+	else
+		return (0);
 }

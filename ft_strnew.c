@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttresori <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/30 19:28:19 by ttresori          #+#    #+#             */
-/*   Updated: 2016/11/30 19:28:20 by ttresori         ###   ########.fr       */
+/*   Created: 2017/11/12 07:29:27 by ttresori          #+#    #+#             */
+/*   Updated: 2017/11/12 07:34:39 by ttresori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,17 @@
 
 char	*ft_strnew(size_t size)
 {
-	char	*new;
 	size_t	i;
+	char	*str;
 
-	new = NULL;
-	new = (char*)malloc(sizeof(char) * (size + 1));
-	if (!new)
-		return (NULL);
 	i = 0;
+	if (!(str = (char *)malloc(sizeof(char) * (size + 1))))
+		return (NULL);
 	while (i < size)
 	{
-		new[i] = '\0';
+		str[i] = '\0';
 		i++;
 	}
-	new[i] = '\0';
-	return (new);
+	str[i] = '\0';
+	return (str);
 }

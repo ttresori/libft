@@ -5,25 +5,23 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttresori <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/30 19:53:31 by ttresori          #+#    #+#             */
-/*   Updated: 2016/11/30 19:54:50 by ttresori         ###   ########.fr       */
+/*   Created: 2017/11/14 01:34:33 by ttresori          #+#    #+#             */
+/*   Updated: 2017/11/20 07:08:29 by ttresori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strequ(const char *s1, const char *s2)
+int		ft_strequ(char const *s1, char const *s2)
 {
-	size_t	i;
+	int i;
 
-	i = 0;
 	if (!s1 || !s2)
 		return (0);
-	while (s1[i] == s2[i])
-	{
-		if (s1[i] == '\0')
-			return (1);
+	i = 0;
+	while ((s1[i] == s2[i]) && s1[i] && s2[i])
 		i++;
-	}
+	if (s1[i] == s2[i])
+		return (1);
 	return (0);
 }

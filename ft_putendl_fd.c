@@ -5,17 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttresori <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/22 22:06:45 by ttresori          #+#    #+#             */
-/*   Updated: 2016/11/30 20:52:23 by ttresori         ###   ########.fr       */
+/*   Created: 2017/11/10 04:05:31 by ttresori          #+#    #+#             */
+/*   Updated: 2017/11/10 04:08:40 by ttresori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putendl_fd(const char *s, int fd)
+void	ft_putendl_fd(char const *s, int fd)
 {
-	if (!s)
-		return ;
 	ft_putstr_fd(s, fd);
 	ft_putchar_fd('\n', fd);
 }

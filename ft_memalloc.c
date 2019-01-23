@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttresori <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/30 18:58:30 by ttresori          #+#    #+#             */
-/*   Updated: 2016/12/01 15:18:22 by ttresori         ###   ########.fr       */
+/*   Created: 2017/11/14 01:34:06 by ttresori          #+#    #+#             */
+/*   Updated: 2017/11/14 01:34:11 by ttresori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,10 @@ void	*ft_memalloc(size_t size)
 	char	*tab;
 	size_t	i;
 
-	tab = NULL;
 	i = 0;
-	tab = malloc(size);
-	if (tab == NULL)
-		return (0);
+	tab = NULL;
+	if (!(tab = malloc(sizeof(void) * size)))
+		return (NULL);
 	while (i < size)
 	{
 		tab[i] = '\0';

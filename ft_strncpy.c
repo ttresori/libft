@@ -5,26 +5,26 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttresori <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/30 17:30:09 by ttresori          #+#    #+#             */
-/*   Updated: 2016/11/30 18:48:37 by ttresori         ###   ########.fr       */
+/*   Created: 2017/11/10 02:32:32 by ttresori          #+#    #+#             */
+/*   Updated: 2017/11/10 04:41:28 by ttresori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncpy(char *dest, const char *src, size_t len)
+char	*ft_strncpy(char *dest, char const *src, size_t n)
 {
-	size_t	i;
+	size_t i;
+	size_t len;
 
 	i = 0;
-	while (i < len && src[i] != '\0')
+	len = ft_strlen(src);
+	while (i < n)
 	{
-		dest[i] = src[i];
-		i++;
-	}
-	while (i < len)
-	{
-		dest[i] = '\0';
+		if (i > len)
+			dest[i] = '\0';
+		else
+			dest[i] = src[i];
 		i++;
 	}
 	return (dest);

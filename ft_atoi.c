@@ -5,38 +5,36 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttresori <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/22 22:06:45 by ttresori          #+#    #+#             */
-/*   Updated: 2016/11/30 22:09:41 by ttresori         ###   ########.fr       */
+/*   Created: 2019/01/23 23:24:52 by ttresori          #+#    #+#             */
+/*   Updated: 2019/01/23 23:24:54 by ttresori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static	int	ft_isblanks(int c)
+int		ft_atoi(char const *str)
 {
-	if (c == ' ' || c == '\t' || c == '\f' ||
-		c == '\r' || c == '\v' || c == '\n')
-		return (1);
-	return (0);
-}
+	int i;
+	int n;
+	int nbr;
 
-int			ft_atoi(const char *nptr)
-{
-	int	sign;
-	int	res;
-	int	i;
-
-	sign = 1;
-	res = 0;
 	i = 0;
-	while (ft_isblanks(nptr[i]))
+	n = 0;
+	nbr = 0;
+	while (str[i] == ' ' || str[i] == '\n' || str[i] == '\t' || str[i] == '\v'
+			|| str[i] == '\r' || str[i] == '\f')
 		i++;
-	if (nptr[i] == '-' || nptr[i] == '+')
+	if (str[i] == '-')
+		n = 1;
+	if (str[i] == '-' || str[i] == '+')
+		i++;
+	while (str[i] >= '0' && str[i] <= '9')
 	{
-		if (nptr[i++] == '-')
-			sign = -1;
+		nbr = nbr * 10;
+		nbr = nbr + (str[i] - '0');
+		i++;
 	}
-	while (nptr[i] >= '0' && nptr[i] <= '9')
-		res = res * 10 + (nptr[i++] - '0');
-	return (res * sign);
+	if (n == 1)
+		return (-nbr);
+	return (nbr);
 }

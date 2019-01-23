@@ -5,16 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttresori <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/30 21:17:04 by ttresori          #+#    #+#             */
-/*   Updated: 2016/11/30 21:17:17 by ttresori         ###   ########.fr       */
+/*   Created: 2017/11/10 02:28:46 by ttresori          #+#    #+#             */
+/*   Updated: 2017/11/10 02:28:49 by ttresori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int	ft_isalpha(int c)
+int		ft_isalpha(int c)
 {
-	if ((c < 123 && c > 96) || (c < 91 && c > 64))
+	if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122))
 		return (1);
-	return (0);
+	else
+		return (0);
 }

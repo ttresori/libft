@@ -5,30 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttresori <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/30 19:58:30 by ttresori          #+#    #+#             */
-/*   Updated: 2016/11/30 20:41:10 by ttresori         ###   ########.fr       */
+/*   Created: 2017/11/12 02:55:59 by ttresori          #+#    #+#             */
+/*   Updated: 2017/11/20 07:12:32 by ttresori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strsub(const char *s, unsigned int start, size_t len)
+char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
-	char	*new;
+	char	*str;
 	size_t	i;
 
-	i = 0;
 	if (!s)
+		return (NULL);
+	if (!(str = (char *)malloc(sizeof(char) * (len + 1))))
 		return (0);
-	if ((new = ft_strnew(len)))
+	i = 0;
+	while (i < len)
 	{
-		while (i < len)
-		{
-			new[i] = s[start + i];
-			i++;
-		}
-		new[i] = '\0';
-		return (new);
+		str[i] = s[start + i];
+		i++;
 	}
-	return (0);
+	str[i] = '\0';
+	return (str);
 }

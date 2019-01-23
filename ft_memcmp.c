@@ -5,29 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttresori <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/22 22:06:45 by ttresori          #+#    #+#             */
-/*   Updated: 2016/11/30 17:21:33 by ttresori         ###   ########.fr       */
+/*   Created: 2017/11/12 07:07:01 by ttresori          #+#    #+#             */
+/*   Updated: 2017/11/12 07:16:12 by ttresori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+int		ft_memcmp(void const *s1, void const *s2, size_t n)
 {
-	unsigned char	*ptr1;
-	unsigned char	*ptr2;
-	int				i;
+	size_t				i;
+	unsigned char		*str1;
+	unsigned char		*str2;
 
-	if (!s1 && !s2 && !n)
-		return (0);
 	i = 0;
-	ptr1 = (unsigned char *)s1;
-	ptr2 = (unsigned char *)s2;
-	while (n--)
+	str1 = (unsigned char *)s1;
+	str2 = (unsigned char *)s2;
+	while (i < n)
 	{
-		if (ptr1[i] != ptr2[i])
-			return (ptr1[i] - ptr2[i]);
-		i++;
+		if (str1[i] == str2[i])
+			i++;
+		else
+			return (str1[i] - str2[i]);
 	}
 	return (0);
 }

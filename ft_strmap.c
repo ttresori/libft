@@ -5,30 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttresori <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/30 21:13:23 by ttresori          #+#    #+#             */
-/*   Updated: 2016/11/30 21:22:41 by ttresori         ###   ########.fr       */
+/*   Created: 2017/11/14 01:35:25 by ttresori          #+#    #+#             */
+/*   Updated: 2017/11/20 07:11:48 by ttresori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmap(const char *s, char (*f)(char))
+char	*ft_strmap(char const *s, char (*f)(char))
 {
-	char	*new;
-	size_t	i;
+	char	*str;
+	int		i;
 
 	if (!s)
-		return (0);
-	new = NULL;
+		return (NULL);
 	i = 0;
-	new = (char*)malloc(sizeof(char) * (ft_strlen(s) + 1));
-	if (!new)
-		return (0);
-	while (s[i] != '\0')
+	if (!(str = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1))))
+		return (NULL);
+	while (s[i])
 	{
-		new[i] = f(s[i]);
+		str[i] = f(s[i]);
 		i++;
 	}
-	new[i] = '\0';
-	return (new);
+	str[i] = '\0';
+	return (str);
 }

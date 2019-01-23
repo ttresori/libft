@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttresori <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/22 22:06:45 by ttresori          #+#    #+#             */
-/*   Updated: 2016/11/30 20:56:57 by ttresori         ###   ########.fr       */
+/*   Created: 2017/11/20 00:48:07 by ttresori          #+#    #+#             */
+/*   Updated: 2017/11/20 03:32:11 by ttresori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static unsigned int	get_len(int n)
+static unsigned int	ft_len(int n)
 {
 	unsigned int	len;
 
@@ -22,48 +22,39 @@ static unsigned int	get_len(int n)
 		n = -n;
 		len++;
 	}
-	while (n /= 10)
-		len++;
-	return (len);
-}
-
-static void			to_string(char **s, unsigned int *i, unsigned int n)
-{
-	if (n == 0)
-		(*s)[0] = '0';
-	(*i)--;
-	while (n > 0)
+	while (n >= 10)
 	{
-		(*s)[*i] = '0' + (n % 10);
-		n /= 10;
-		(*i)--;
+		n = n / 10;
+		len++;
 	}
+	return (len);
 }
 
 char				*ft_itoa(int n)
 {
-	int				sign;
-	char			*s;
 	unsigned int	i;
+	char			*str;
 
-	s = NULL;
-	i = get_len(n);
-	if ((s = ft_strnew(i)))
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
+	i = ft_len(n) - 1;
+	if (!(str = ft_strnew(ft_len(n))))
+		return (NULL);
+	if (n < 0)
 	{
-		if (n == 0)
-		{
-			to_string(&s, &i, n);
-			return (s);
-		}
-		sign = 1;
-		if (n < 0)
-		{
-			n = -n;
-			sign = -1;
-		}
-		to_string(&s, &i, n);
-		if (sign < 0)
-			s[i] = '-';
+		n = -n;
+		str[0] = '-';
 	}
-	return (s);
+	if (n == 0)
+	{
+		str[0] = '0';
+		return (str);
+	}
+	while (n > 0)
+	{
+		str[i] = '0' + (n % 10);
+		n = n / 10;
+		i--;
+	}
+	return (str);
 }

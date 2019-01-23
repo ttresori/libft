@@ -5,30 +5,23 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttresori <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/29 21:53:14 by ttresori          #+#    #+#             */
-/*   Updated: 2016/11/29 22:50:02 by ttresori         ###   ########.fr       */
+/*   Created: 2017/11/10 02:31:52 by ttresori          #+#    #+#             */
+/*   Updated: 2017/11/10 03:08:44 by ttresori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *src)
+char	*ft_strdup(char const *src)
 {
-	size_t	i;
-	char	*dup;
+	int		i;
+	char	*str;
 
 	i = 0;
-	dup = (char *)malloc(sizeof(char) * (ft_strlen(src) + 1));
-	if (dup == 0)
+	while (src[i])
+		i++;
+	if (!(str = malloc(sizeof(char) * (i + 1))))
 		return (0);
-	else
-	{
-		while (src[i] != '\0' && i < ft_strlen(src))
-		{
-			dup[i] = src[i];
-			i++;
-		}
-		dup[i] = '\0';
-		return (dup);
-	}
+	str = ft_strcpy(str, src);
+	return (str);
 }

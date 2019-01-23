@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttresori <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/30 21:14:28 by ttresori          #+#    #+#             */
-/*   Updated: 2016/11/30 21:14:30 by ttresori         ###   ########.fr       */
+/*   Created: 2017/11/12 07:48:50 by ttresori          #+#    #+#             */
+/*   Updated: 2018/07/10 03:10:37 by ttresori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	ft_strdel(char **as)
 {
 	if (!as || !*as)
 		return ;
-	if (as || *as)
-		free(*as);
+	free(*as);
 	*as = NULL;
 }

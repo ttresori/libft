@@ -5,33 +5,34 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttresori <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/25 03:19:32 by ttresori          #+#    #+#             */
-/*   Updated: 2016/11/30 17:47:14 by ttresori         ###   ########.fr       */
+/*   Created: 2017/11/10 02:33:07 by ttresori          #+#    #+#             */
+/*   Updated: 2017/11/10 06:53:36 by ttresori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strstr(const char *m, const char *n)
+char	*ft_strstr(char const *str, char const *to_find)
 {
-	unsigned int	i;
-	unsigned int	pos;
-	size_t			len;
+	int i;
+	int j;
+	int size;
 
 	i = 0;
-	len = ft_strlen(n);
-	if (len == 0)
-		return ((char*)m);
-	while (m[i])
+	size = ft_strlen(to_find);
+	j = 0;
+	if (size == 0)
+		return ((char *)str);
+	while (str[i] != '\0')
 	{
-		pos = 0;
-		while (n[pos] == m[pos + i])
+		while (str[i + j] == to_find[j])
 		{
-			if (pos == (len - 1))
-				return ((char*)m + i);
-			pos++;
+			if (j == size - 1)
+				return ((char *)str + i);
+			j++;
 		}
+		j = 0;
 		i++;
 	}
-	return (NULL);
+	return (0);
 }

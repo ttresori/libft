@@ -5,16 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttresori <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/30 21:18:10 by ttresori          #+#    #+#             */
-/*   Updated: 2016/11/30 21:18:18 by ttresori         ###   ########.fr       */
+/*   Created: 2017/11/10 03:28:50 by ttresori          #+#    #+#             */
+/*   Updated: 2017/11/10 03:31:33 by ttresori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isprint(int c)
+int		ft_isprint(int c)
 {
-	if (c > 31 && c < 127)
+	if (c >= 32 && c <= 126)
 		return (1);
-	return (0);
+	else
+		return (0);
 }

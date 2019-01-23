@@ -5,16 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttresori <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/30 17:38:18 by ttresori          #+#    #+#             */
-/*   Updated: 2016/11/30 17:38:33 by ttresori         ###   ########.fr       */
+/*   Created: 2017/11/10 03:21:55 by ttresori          #+#    #+#             */
+/*   Updated: 2017/11/10 03:23:15 by ttresori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalnum(int c)
+int		ft_isalnum(int c)
 {
-	if ((c < 123 && c > 96) || (c < 91 && c > 64) || (c < 58 && c > 47))
+	if (ft_isalpha(c) || ft_isdigit(c))
 		return (1);
-	return (0);
+	else
+		return (0);
 }

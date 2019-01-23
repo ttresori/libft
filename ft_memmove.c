@@ -5,29 +5,35 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttresori <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/30 17:42:52 by ttresori          #+#    #+#             */
-/*   Updated: 2016/12/01 14:15:59 by ttresori         ###   ########.fr       */
+/*   Created: 2017/11/12 02:05:27 by ttresori          #+#    #+#             */
+/*   Updated: 2017/11/12 07:05:38 by ttresori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+void	*ft_memmove(void *dest, void const *src, size_t n)
 {
-	char	*srcc;
-	char	*dstc;
-	size_t	i;
+	unsigned char		*des;
+	unsigned char		*sr;
+	int					i;
+	int					nb;
 
-	if (dest == src)
-		return (dest);
-	i = -1;
-	srcc = (char *)src;
-	dstc = (char *)dest;
-	if (srcc < dstc)
-		while ((int)(--n) >= 0)
-			*(dstc + n) = *(srcc + n);
+	sr = (unsigned char *)src;
+	nb = (int)n;
+	i = 0;
+	des = (unsigned char *)dest;
+	if (sr >= des)
+		while (i < nb)
+		{
+			des[i] = sr[i];
+			i++;
+		}
 	else
-		while (++i < n)
-			*(dstc + i) = *(srcc + i);
+		while (nb > 0)
+		{
+			des[nb - 1] = sr[nb - 1];
+			nb--;
+		}
 	return (dest);
 }

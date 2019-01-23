@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttresori <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/30 20:39:07 by ttresori          #+#    #+#             */
-/*   Updated: 2016/12/01 14:01:39 by ttresori         ###   ########.fr       */
+/*   Created: 2017/11/10 02:29:44 by ttresori          #+#    #+#             */
+/*   Updated: 2017/11/10 02:36:44 by ttresori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,17 @@
 
 void	ft_putnbr(int n)
 {
-	unsigned int nb;
-
-	nb = n;
+	if (n == -2147483648)
+	{
+		ft_putstr("-2147483648");
+		return ;
+	}
 	if (n < 0)
 	{
+		n = -n;
 		ft_putchar('-');
-		nb = -n;
 	}
-	if (nb > 9)
-	{
-		ft_putnbr(nb / 10);
-		ft_putnbr(nb % 10);
-	}
-	else
-		ft_putchar(nb + '0');
+	if (n / 10 > 0)
+		ft_putnbr(n / 10);
+	ft_putchar((n % 10) + '0');
 }

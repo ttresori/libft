@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttresori <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/23 23:26:58 by ttresori          #+#    #+#             */
-/*   Updated: 2019/01/23 23:26:58 by ttresori         ###   ########.fr       */
+/*   Created: 2019/01/23 23:23:58 by ttresori          #+#    #+#             */
+/*   Updated: 2019/01/23 23:24:00 by ttresori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-void	ft_bzero(void *s, size_t n)
-{
-	size_t	i;
-	char	*str;
+# include "libft.h"
 
-	i = 0;
-	str = s;
-	while (i < n)
-	{
-		str[i] = '\0';
-		i++;
-	}
-}
+# define BUFF_SIZE 512
+
+int			get_next_line(const int fd, char **line);
+
+#endif

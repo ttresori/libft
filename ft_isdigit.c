@@ -5,16 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttresori <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/30 21:17:54 by ttresori          #+#    #+#             */
-/*   Updated: 2016/11/30 21:18:01 by ttresori         ###   ########.fr       */
+/*   Created: 2017/11/10 03:16:11 by ttresori          #+#    #+#             */
+/*   Updated: 2017/11/10 03:19:54 by ttresori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isdigit(int c)
+int		ft_isdigit(int c)
 {
-	if (c < 58 && c > 47)
+	if (c >= 48 && c <= 57)
 		return (1);
-	return (0);
+	else
+		return (0);
 }

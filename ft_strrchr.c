@@ -5,21 +5,36 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttresori <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/25 05:10:39 by ttresori          #+#    #+#             */
-/*   Updated: 2016/12/01 14:58:33 by ttresori         ###   ########.fr       */
+/*   Created: 2017/11/10 05:30:18 by ttresori          #+#    #+#             */
+/*   Updated: 2017/11/10 05:59:41 by ttresori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+char	*ft_strrchr(char const *s, int c)
 {
-	int	len;
+	int i;
+	int count;
 
-	len = ft_strlen((char *)s);
-	while (0 != len && s[len] != (char)c)
-		len--;
-	if (s[len] == (char)c)
-		return ((char *)&s[len]);
+	i = 0;
+	count = 0;
+	while (s[i])
+	{
+		if (s[i] == c)
+			count++;
+		i++;
+	}
+	if (s[i] == '\0' && s[i] == c)
+		return ((char *)s + i);
+	i = 0;
+	while (s[i])
+	{
+		if (count != 0 && s[i] == c)
+			count--;
+		if (count == 0 && s[i] == c)
+			return ((char *)s + i);
+		i++;
+	}
 	return (NULL);
 }
