@@ -1,23 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_b.c                                     :+:      :+:    :+:   */
+/*   remove_in_tab.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttresori <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/30 22:08:04 by ttresori          #+#    #+#             */
-/*   Updated: 2019/01/24 00:35:25 by ttresori         ###   ########.fr       */
+/*   Created: 2018/11/27 05:32:02 by ttresori          #+#    #+#             */
+/*   Updated: 2019/01/24 00:05:09 by ttresori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putendl_b(const char *s)
+char	**remove_in_tab(char **tab, int size, int pos)
 {
-	if (!s)
-		return ;
-	ft_putstr(BLUE);
-	ft_putstr(s);
-	ft_putstr(NORMAL);
-	ft_putchar('\n');
+	int		i;
+	int		i2;
+	char	**new;
+
+	i = 0;
+	i2 = 0;
+	if (!(new = (char**)malloc(sizeof(char*) * (size))))
+		return (NULL);
+	while (tab[i2] != NULL)
+	{
+		if (i2 != pos)
+		{
+			if (!(new[i] = ft_strdup(tab[i2])))
+			{
+				ft_memdel((void**)new);
+				return (NULL);
+			}
+			i++;
+		}
+		free(tab[i2]);
+		i2++;
+	}
+	new[i] = NULL;
+	free(tab);
+	return (new);
 }

@@ -1,22 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   search_env.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttresori <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/23 23:23:58 by ttresori          #+#    #+#             */
-/*   Updated: 2019/01/23 23:24:00 by ttresori         ###   ########.fr       */
+/*   Created: 2018/11/28 18:12:19 by ttresori          #+#    #+#             */
+/*   Updated: 2019/01/23 23:04:51 by ttresori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-# include "libft.h"
+int	search_env(char **env, int size, char *element)
+{
+	int pos;
 
-# define BUFF_SIZE 512
-
-int			get_next_line(const int fd, char **line);
-
-#endif
+	pos = 0;
+	if (element == NULL || *element == '\0')
+		return (-1);
+	while (pos < size)
+	{
+		if (ft_strncmp(element, env[pos], ft_strlen(element)) == 0)
+			return (pos);
+		pos++;
+	}
+	return (-1);
+}
