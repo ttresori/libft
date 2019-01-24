@@ -6,7 +6,7 @@
 /*   By: ttresori <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/20 00:46:29 by ttresori          #+#    #+#             */
-/*   Updated: 2017/11/20 00:46:31 by ttresori         ###   ########.fr       */
+/*   Updated: 2019/01/24 03:05:43 by ttresori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,11 @@ t_list	*ft_lstnew(void const *content, size_t content_size)
 		return (NULL);
 	if (content != NULL)
 	{
-		new->content = ft_memalloc(content_size);
+		if (!(new->content = ft_memalloc(content_size)))
+		{
+			ft_memdel((void**)new);
+			return (NULL);
+		}
 		ft_memcpy(new->content, content, content_size);
 		new->content_size = content_size;
 	}
