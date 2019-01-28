@@ -15,7 +15,6 @@
 # include <unistd.h>
 # include <stdbool.h>
 # include <stdlib.h>
-# include "get_next_line.h"
 
 # define IS_SPACE(x) (x == ' ' || x == '\t' || x == '\r' || x  == '\f')
 # define BLACK	"\033[1;30m"

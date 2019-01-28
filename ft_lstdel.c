@@ -16,6 +16,7 @@ void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 {
 	t_list *tmp;
 
+	tmp = NULL;
 	while (*alst)
 	{
 		del((*alst)->content, (*alst)->content_size);
